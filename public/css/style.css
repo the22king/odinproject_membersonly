@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: rgba(26, 32, 44);
+  --secondary: #27ae60;
+  --secondary-light: #2ecc71;
+  --white: rgb(255, 255, 255);
+  --gray: #d1d5dc;
+  --red: #c0392b;
+  --red-light: #e74c3c;
+  --bg-color: #101828;
+  --shadow: 0 0 6px 3px rgba(0, 0, 0, 0.3);
+}
+
+html {
+  font-size: 10px;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Roboto", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--white);
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem;
+}
+
+.greeting {
+  font-size: 2.8rem;
+}
+
+.instruction {
+  font-size: 3.6rem;
+}
+
+.btn,
+.btn:visited {
+  text-decoration: none;
+  padding: 1rem;
+  border: 1px solid var(--gray);
+  border-radius: 5px;
+  color: var(--white);
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.btn-container {
+  display: inline-flex;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.title {
+  font-family: "Space Grotesk", sans-serif;
+  padding-top: 5rem;
+  font-size: 5rem;
+}
+
+.message {
+  padding-top: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 3rem;
+  margin-top: 3rem;
+  border: 1px solid var(--gray);
+  border-radius: 10px;
+  max-width: 30rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.message__container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.message__content {
+  font-size: 3rem;
+  font-weight: 500;
+  padding-bottom: 2rem;
+}
+
+.message__author {
+  padding-bottom: 2rem;
+  font-size: 1.4rem;
+  color: var(--gray);
+}
+
+.author,
+.date {
+  font-weight: 600;
+}
+
+.btn-logout,
+.btn-logout:visited {
+  background-color: var(--red);
+  color: var(--white);
+  border: none;
+}
+
+.btn-logout:hover {
+  background-color: var(--red-light);
+}
+
+.btn-delete:hover,
+.btn-signup:hover {
+  background-color: var(--gray);
+  color: var(--bg-color);
+}
+
+.btn-create,
+.btn-login,
+.btn-submit,
+.btn-membership,
+.btn-create:visited,
+.btn-login:visited,
+.btn-membership:visited {
+  background-color: var(--secondary);
+  color: var(--white);
+  border: none;
+}
+
+.btn-create:hover,
+.btn-login:hover {
+  background-color: var(--secondary-light);
+}

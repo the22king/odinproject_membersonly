@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/login.css" />
+  </head>
+  <body>
+    <div class="main__container">
+      <h1 class="instruction">Sign Up</h1>
+      <form class="form" action="/signup" method="POST">
+        <div class="form__container">
+          <div class="block">
+            <label class="form__label" for="username">Username:</label>
+            <input
+              class="form__input"
+              id="username"
+              name="username"
+              placeholder="username"
+              type="text"
+            />
+          </div>
+          <div class="block">
+            <label class="form__label" for="password">Password:</label>
+            <input
+              class="form__input"
+              id="password"
+              name="password"
+              type="password"
+            />
+          </div>
+          <div class="block">
+            <label class="form__label" for="confirmpassword"
+              >Confirm Password:</label
+            >
+            <input
+              class="form__input"
+              id="confirmpassword"
+              name="confirmpassword"
+              type="password"
+            />
+          </div>
+          <div class="block">
+            <label class="form__label" for="adminpassword"
+              >If you're an admin, enter the admin passcode:</label
+            >
+            <input
+              class="form__input"
+              id="adminpassword"
+              name="adminpassword"
+              type="password"
+            />
+          </div>
+          <button type="submit" class="btn btn-submit">Sign Up</button>
+        </div>
+      </form>
+
+      <% if (locals.errors) {%>
+      <ul>
+        <% errors.forEach(function(error) { %>
+        <li class="error"><%= error.msg %></li>
+        <% }); %>
+      </ul>
+      <% } %>
+    </div>
+  </body>
+</html>

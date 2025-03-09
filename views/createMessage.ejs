@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Message</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/create.css" />
+  </head>
+  <body>
+    <main class="main">
+      <% if (locals.user) {%> <% if (user.ismember === true) {%>
+      <div class="conatiner">
+        <h1 class="title">Write Your Message:</h1>
+        <form class="form" action="/createmsg" method="POST">
+          <textarea
+            class="form__input"
+            id="message"
+            name="message"
+            cols="40"
+            placeholder="Enter your message..."
+          ></textarea>
+          <input id="userid" name="userid" type="hidden" value="<%=user.id%>" />
+          <button class="btn btn-submit" type="submit">Create Message</button>
+        </form>
+      </div>
+      <% } %> <% } else { %>
+      <div class="conatiner">
+        <h1>please log in</h1>
+        <a href="/login">LOG IN</a>
+        <a href="/signup">SIGN UP</a>
+      </div>
+      <% } %>
+    </main>
+  </body>
+</html>

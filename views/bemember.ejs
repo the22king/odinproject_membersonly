@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Become a member</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/login.css" />
+  </head>
+  <body>
+    <div class="container">
+      <% if (locals.user) {%>
+      <form class="form" action="/bemember" method="POST">
+        <label class="form__label" for="password"
+          >Insert the Club's Secret Password to become a member:</label
+        >
+        <input
+          class="form__input"
+          id="password"
+          name="password"
+          type="password"
+        />
+        <input id="id" name="id" type="hidden" value="<%=user.id%>" />
+        <button class="btn btn-submit" type="submit">Log In</button>
+      </form>
+      <% } else { %>
+      <h1>please log in</h1>
+      <a href="/login">LOG IN</a>
+      <%}%>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Members Only</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <% if (locals.user) {%>
+      <h2 class="greeting">
+        Welcome Back <%= user.username.charAt(0).toUpperCase() +
+        user.username.slice(1)%>
+      </h2>
+      <div class="btn-container">
+        <a class="btn btn-logout" href="/logout">LOG OUT</a>
+        <% if (user.ismember === false) {%>
+        <a class="btn btn-membership" href="/bemember">Become a member</a>
+        <% } %> <% if (user.ismember === true) {%>
+        <a class="btn btn-create" href="/createmsg">Create a message</a>
+        <% } %>
+      </div>
+      <h1 class="title">Messages Board</h1>
+
+      <% if (typeof messages !== 'undefined' && messages && messages.length > 0)
+      { %>
+      <div class="message__container">
+        <% for (let i=0; i < messages.length; i++) {%>
+        <div class="message">
+          <p class="message__content"><%= messages[i].message %></p>
+          <div class="message__bottom">
+            <% if (user.ismember === true) {%>
+
+            <p class="message__author">
+              Published by
+              <span class="author"
+                ><%= messages[i].username.charAt(0).toUpperCase() +
+                messages[i].username.slice(1)%></span
+              >
+              at
+              <span class="date"><%= messages[i].pubdate %></span>
+            </p>
+            <% if (user.isadmin === true) {%>
+            <a class="btn btn-delete" href="/delete/<%= messages[i].id %>"
+              >Delete Message</a
+            >
+            <% } } %>
+          </div>
+        </div>
+        <% } %> <% } %>
+      </div>
+      <% } else { %>
+      <h2 class="instruction">Please Log in</h2>
+      <div class="btn-container">
+        <a class="btn btn-login" href="/login">LOG IN</a>
+        <a class="btn btn-signup" href="/signup">SIGN UP</a>
+      </div>
+      <% if (typeof messages !== 'undefined' && messages && messages.length > 0)
+      { %>
+      <h1 class="title">Messages Board</h1>
+      <div class="message__container">
+        <% for (let i=0; i < messages.length; i++) {%>
+        <div class="message">
+          <p class="message__content"><%= messages[i].message %></p>
+        </div>
+        <% } %>
+      </div>
+      <% } }%>
+    </div>
+  </body>
+</html>
